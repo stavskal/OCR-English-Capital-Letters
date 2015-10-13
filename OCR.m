@@ -5,14 +5,21 @@ clear
 
 The following script was written as part of a university project, although
 many additions were made to be a fully working Object Character Recognition
-Engine for english capital letters. It requires LIBSVM to be installed and
-linked to matlab installation, in order to run properly.
+Engine for english capital letters. 
+
+IMPORTANT: It requires LIBSVM to be installed and
+linked to matlab installation, in order to run properly. Otherwise
+'ovrpredict' function will raise an error
 
 Also due to the simplistic nature of this project, the image needs to 
-contain only the letters and it is highly advised that it is binary in its
-initial form
+contain only the letters, alligned sideways. It is highly advised that the 
+TestImage is binary in its initial form.
 
-Example image is contained on github.com/stavskal
+Tests on the Test Set showed a 93% accuracy in prediction, which is
+optimistic because the system suffers from variance. May be patched in
+future.
+
+Example image is contained on: https://github.com/stavskal/OCR-English-Capital-Letters
 %}
 
 
@@ -20,9 +27,10 @@ Example image is contained on github.com/stavskal
 load('models93.mat')
 
 %Image containing to-be-recognized letters 
-image=imread('TestImage.jpg')
+image=imread('TestImage.png');
+imshow(image);
 
-%First Step of Preprocessing
+%First Step of Preprocessingw
 %Convert RGB -> Binary
 image=im2double(rgb2gray(image));
 imageComp=im2bw(image,graythresh(image));
@@ -97,7 +105,7 @@ for i=1:cc.NumObjects
     
 end
 
- y=ones(size(,1),1);
+ y=ones(size(X,1),1);
 
  %predicting each letter using pretraind 'model'
  %y==13 does not contribute in any way to the result, just required
