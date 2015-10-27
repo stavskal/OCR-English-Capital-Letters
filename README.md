@@ -10,7 +10,7 @@ OCR script for English handwritten capital letters
 * cd('<download_path>/libsvm/matlab')
 * make
 * After you have installed LIBSVM you need to add its path to the Matlab environment. Because matlab has functions with the same name you need to 'shadow' them.
-* run:  addpath '<install_path>'
+* run:  addpath 'install_path'
 
 
 ###Dependencies
