@@ -1,6 +1,6 @@
 #Object Character Recognition with SVMs
 
-OCR script for English handwritten capital letters
+OCR script for English handwritten capital letters. Models are pre-trained and stored in 'models93.mat'
 
 #Installation
 * First make sure you have a supported C/C++ compiler.
